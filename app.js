@@ -18,6 +18,8 @@ const { stdin, stdout } = require('process')
 
 var readline = require('readline');
 
+const validar = require('./validar')
+
 var entradaDados = readline.createInterface({
     input: process.stdin,
     output: process.stdout
@@ -49,37 +51,10 @@ entradaDados.question('Qual é o nome do aluno?\n', function (nome) {
 
                                 entradaDados.question('Nota-4:\n', function (nota4) {
                                     let quartaNota = nota4;
-                                    let media = 0;
-
-
-                                    if (primeiraNota == '' || segundaNota == '' || terceiraNota == '' || quartaNota == '') {
-                                        console.log('ERRO: a caixa de entrada precisa receber um valor')
-
-                                    } else if (isNaN(primeiraNota)
-                                        || isNaN(segundaNota)
-                                        || isNaN(terceiraNota)
-                                        || isNaN(quartaNota)) {
-                                        console.log('ERRO: Digite apenas números')
-
-                                    } else if (primeiraNota < 0 || primeiraNota > 100 || segundaNota < 0 || segundaNota > 100 ||
-                                        terceiraNota < 0 || terceiraNota > 100 || quartaNota < 0 || quartaNota > 100) {
-                                        console.log('Erro: O resultado é menor que 0 ou maior que 100')
-
-                                    } else {
-                                        media = (Number(primeiraNota) + Number(segundaNota) + Number(terceiraNota) + Number(quartaNota)) / 4;
-
-                                        if(media >=7){
-                                            console.log('Aprovado')
-                                        }else{
-                                            console.log('Reprovado')
-                                        }
-
-                                        console.log('Média final:' + media.toFixed(1));
-                                    }
-
-
-
-
+                                    // let media = 0;
+                                    const media = validar.validarErros(primeiraNota, segundaNota, terceiraNota, quartaNota)
+                                    const mediaNotas = validar.somaDasNotas(mediaNotas)
+                                    
 
                                 })
                             })
