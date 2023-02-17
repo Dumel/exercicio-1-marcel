@@ -29,41 +29,57 @@ entradaDados.question('Qual é o nome do aluno?\n', function (nome) {
     let nomeAluno = nome;
 
     entradaDados.question('Qual o seu sexo? ', function (sexo) {
-        let sex = sexo;
+        let sexDoAluno = sexo.toUpperCase
+        const alunoSex = validar.validarGeneroAluno(sexDoAluno)
 
         entradaDados.question('Qual é o nome do professor?\n', function (prof) {
             let nomeProf = prof;
 
-            entradaDados.question('Qual é o nome do curso?\n', function (curso) {
-                let curso1 = curso;
+            entradaDados.question('Qual o gênero do seu profº?:\n', function(profSex){
+                let sexDoProfessor = profSex.toUpperCase
+                const proSex = validar.validarGeneroProf(sexDoProfessor)
 
-                entradaDados.question('Qual é a disciplina?\n', function (disciplina) {
-                    let disciplina1 = disciplina;
+                entradaDados.question('Qual é o nome do curso?\n', function (curso) {
+                    let curso1 = curso;
+    
+                    entradaDados.question('Qual é a disciplina?\n', function (disciplina) {
+                        let disciplina1 = disciplina;
+    
+                        entradaDados.question('Nota-1:\n', function (nota1) {
+                            let primeiraNota = Number (nota1);
+    
+                            entradaDados.question('Nota-2:\n', function (nota2) {
+                                let segundaNota = Number (nota2);
+    
+                                entradaDados.question('Nota-3:\n', function (nota3) {
+                                    let terceiraNota = Number (nota3);
+    
+                                    entradaDados.question('Nota-4:\n', function (nota4) {
+                                        let quartaNota = Number (nota4);
+                                        let resultado = validar.calcular(primeiraNota, segundaNota, terceiraNota, quartaNota) 
+                                        const media = validar.validarErros(resultado)
+                                        const mediaNotas = validar.somaDasNotas(media)
+                                        const relatorioMostrar = validar.relatorioExibir(sexo, profSex, nome, prof, curso, disciplina)
 
-                    entradaDados.question('Nota-1:\n', function (nota1) {
-                        let primeiraNota = nota1;
+                                        console.log(relatorioMostrar)
 
-                        entradaDados.question('Nota-2:\n', function (nota2) {
-                            let segundaNota = nota2;
 
-                            entradaDados.question('Nota-3:\n', function (nota3) {
-                                let terceiraNota = nota3;
 
-                                entradaDados.question('Nota-4:\n', function (nota4) {
-                                    let quartaNota = nota4;
-                                    // let media = 0;
-                                    const media = validar.validarErros(primeiraNota, segundaNota, terceiraNota, quartaNota)
-                                    const mediaNotas = validar.somaDasNotas(mediaNotas)
-                                    
-
+                                        
+    
+                                    })
                                 })
                             })
+    
                         })
-
+    
                     })
-
                 })
             })
+                
+            
+
+            
 
 
         })
