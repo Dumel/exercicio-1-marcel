@@ -1,8 +1,24 @@
-const calcular = (nota1, nota2, nota3, nota4) => {
+const calcular = (nota1, nota2, nota3, nota4, media) => {
     let primeiraNota = Number (nota1)
     let segundaNota = Number (nota2)
     let terceiraNota = Number (nota3)
     let quartaNota = Number (nota4)
+
+    let resultado = ((primeiraNota + segundaNota + terceiraNota + quartaNota)/4)
+
+
+    if (resultado > 70) {
+        return`Aprovado, Média: ${media}`
+
+    } else if(media >= 50 && media <= 69){
+
+            return `Exame, Média: ${media}`
+
+    }else if (media < 50){
+        return `Reprovado, Média: ${media}`
+    
+    }
+
 }
 
 const validarGeneroAluno = (sexo) => {
@@ -61,7 +77,7 @@ const somaDasNotas = (media) => {
 
     }
 
-    const dadosExame = (mediaNotaExame, media) => {
+    const dadosExame = (mediaNotaExame) => {
         if(mediaNotaExame < 5) {
             return `Reprovado, média final: ${mediaNotaExame}`
         }

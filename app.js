@@ -36,7 +36,7 @@ entradaDados.question('Qual é o nome do aluno?\n', function (nome) {
             let nomeProf = prof;
 
             entradaDados.question('Qual o gênero do seu profº?:\n', function(profSex){
-                let sexDoProfessor = profSex.toUpperCase
+                let sexDoProfessor = profSex.toLowerCase
                 const proSex = validar.validarGeneroProf(sexDoProfessor)
 
                 entradaDados.question('Qual é o nome do curso?\n', function (curso) {
@@ -56,14 +56,14 @@ entradaDados.question('Qual é o nome do aluno?\n', function (nome) {
     
                                     entradaDados.question('Nota-4:\n', function (nota4) {
                                         let quartaNota = Number (nota4);
-                                        let resultado = validar.calcular(primeiraNota, segundaNota, terceiraNota, quartaNota) 
-                                        const media = validar.validarErros(resultado)
-                                        const mediaNotas = validar.somaDasNotas(media)
+                                        
+                                        const erros = validar.validarErros(primeiraNota, segundaNota, terceiraNota, quartaNota)
+                                        
                                         const relatorioMostrar = validar.relatorioExibir(sexo, profSex, nome, prof, curso, disciplina)
 
-                                        console.log(relatorioMostrar)
-
-
+                                        
+                                        let resultado = validar.calcular(primeiraNota, segundaNota, terceiraNota, quartaNota) 
+                                        console.log(relatorioMostrar, resultado)
 
                                         
     
